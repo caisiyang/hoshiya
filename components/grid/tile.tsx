@@ -6,6 +6,7 @@ export function GridTileImage({
   isInteractive = true,
   active,
   label,
+  hoverSrc,
   ...props
 }: {
   isInteractive?: boolean;
@@ -16,6 +17,7 @@ export function GridTileImage({
     currencyCode: string;
     position?: 'bottom' | 'center';
   };
+  hoverSrc?: string;
 } & React.ComponentProps<typeof Image>) {
   return (
     <div
@@ -29,11 +31,22 @@ export function GridTileImage({
       {props.src ? (
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-100">
           <Image
-            className={clsx('relative h-full w-full object-cover transition duration-500 ease-in-out group-hover:scale-105', {
-              'hover:scale-105': isInteractive
+            className={clsx('relative h-full w-full object-cover transition duration-500 ease-in-out', {
+              'group-hover:scale-105': isInteractive
             })}
             {...props}
           />
+          {hoverSrc ? (
+            <Image
+              fill
+              src={hoverSrc}
+              alt={props.alt || ""}
+              className={clsx('absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100', {
+                'group-hover:scale-105': isInteractive
+              })}
+              sizes={props.sizes}
+            />
+          ) : null}
         </div>
       ) : null}
 
