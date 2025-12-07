@@ -21,7 +21,7 @@ export default async function HomePage() {
       <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-neutral-100">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2669&auto=format&fit=crop"
+            src="/hero.png"
             alt="Hoshiya Jewelry"
             fill
             className="object-cover opacity-90"
