@@ -3,7 +3,13 @@
 @plugin "@tailwindcss/container-queries";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --font-sans: var(--font-lato), var(--font-noto-sans-jp), sans-serif;
+  --font-serif: var(--font-playfair-display), var(--font-shippori-mincho), serif;
+}
+
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -11,10 +17,23 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  html {
+    background-color: #FAFAF9;
+    /* Soft Beige / Off-white */
+    color: #1A1A1A;
+    /* Dark Charcoal */
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   html {
+    /* Slightly darker off-white for dark mode to keep 'light' feel or full dark? 
+       User said 'Japanese *Light* Minimalist', so maybe avoid deep black. 
+       But for standard dark mode support, let's keep it dark but softer */
+    background-color: #1A1A1A;
+    color: #EDEDED;
     color-scheme: dark;
   }
 }
@@ -28,5 +47,6 @@
 a,
 input,
 button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  @apply transition-colors duration-200;
+  @apply focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-neutral-400 focus-visible:ring-offset-2;
 }
