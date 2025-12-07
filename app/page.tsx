@@ -31,11 +31,11 @@ export default async function HomePage() {
         </div>
 
         <div className="relative z-10 flex flex-col items-center text-center text-white px-4 animate-fadeIn">
-          <h1 className="font-serif text-5xl md:text-7xl tracking-[0.1em] uppercase mb-4 drop-shadow-sm">
+          <h1 className="font-sans text-5xl md:text-7xl tracking-[0.1em] uppercase mb-4 drop-shadow-sm">
             Hoshiya
           </h1>
           <p className="text-sm md:text-base font-light tracking-[0.3em] uppercase mb-10 drop-shadow-sm">
-            Timeless Elegance &bull; Tokyo
+            Timeless Elegance &bull; Tokyo,JP
           </p>
           <Link
             href="/search"
